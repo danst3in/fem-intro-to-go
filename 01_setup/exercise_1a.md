@@ -15,11 +15,13 @@ Answer the following questions
 1. Read about `for loops` in the _Effective Go_ document
 
 - What kind of loop doesn’t exist in Go?
+    * the Do or While loop
 
-2. Read about the `fmt` _package_
+1. Read about the `fmt` _package_
 
 - What does `fmt.Println()` return?
+    * The number of bytes written (Integer), and any write error encountered.
 
-3. Find a _blog post_ about the recent release of Go 1.13
+1. Find a _blog post_ about the recent release of Go 1.13
 
 - What are some of the new features?
