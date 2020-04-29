@@ -1,16 +1,17 @@
-package main
+// package main
 
-import (
-	"errors"
-	"fmt"
-)
+// import (
+// 	"errors"
+// 	"fmt"
+// 	"os"
+// )
 
-func isGreaterThanTen(num int) error {
-	if num < 10 {
-		return errors.New("something bad happened")
-	}
-	return nil
-}
+// func isGreaterThanTen(num int) error {
+// 	if num < 10 {
+// 		return errors.New("something bad happened")
+// 	}
+// 	return nil
+// }
 
 // func openFile() error {
 // 	f, err := os.Open("missingFile.txt")
@@ -21,21 +22,24 @@ func isGreaterThanTen(num int) error {
 // 	return nil
 // }
 
-func main() {
-	num := 9
-	err := isGreaterThanTen(num)
-	if err != nil {
-		fmt.Println(fmt.Errorf("%d is NOT GREATER THAN TEN", num))
-		// panic(err)
-		// log.Fatalln(err)
-	}
+// func main() {
+// 	num := 9
+// 	// err := isGreaterThanTen(num)
+// 	if err := isGreaterThanTen(num); err != nil {
+// 		fmt.Println(fmt.Errorf("%d is NOT GREATER THAN TEN", num))
+// 		// panic(err)
+// 		// fmt.Println("Hey do something else") // unreachable due to panic
+// 		// log.Fatalln(err)
+// 	}
 
-	// err := openFile()
+// 	// fmt.Println(err) // removed after scoping first error to "if block"
 
-	// if err != nil {
-	// 	fmt.Println(fmt.Errorf("%v", err))
-	// }
-}
+// 	// err := openFile() // removed after scoping 2nd error to "if block"
+
+// 	if err := openFile(); err != nil {
+// 		fmt.Println(fmt.Errorf("%v", err))
+// 	}
+// }
 
 // TAKE A MINUTE TO REFACTOR THE ABOVE CODE TO SCOPE THE ERROR VARIABLE INTO THE IF BLOCK
 
@@ -88,34 +92,34 @@ func main() {
 
 // ****************************************************
 
-// package main
+package main
 
-// import (
-// 	"fmt"
-// )
+import (
+	"fmt"
+)
 
-// func handlePanic() string {
-// 	return "HANDLING THE PANIC"
-// }
+func handlePanic() string {
+	return "HANDLING THE PANIC"
+}
 
-// func recoverFromPanic() {
-// 	// recover() will only return a value if there has been a panic
-// 	if r := recover(); r != nil {
-// 		fmt.Println("We panicked but everything is fine.")
-// 		fmt.Println("Panic instructions received:", r)
-// 	}
-// }
+func recoverFromPanic() {
+	// recover() will only return a value if there has been a panic
+	if r := recover(); r != nil {
+		fmt.Println("We panicked but everything is fine.")
+		fmt.Println("Panic instructions received:", r)
+	}
+}
 
-// func doThings() {
-// 	defer recoverFromPanic()
-// 	for i := 0; i < 5; i++ {
-// 		fmt.Println(i)
-// 		if i == 2 {
-// 			panic(handlePanic())
-// 		}
-// 	}
-// }
+func doThings() {
+	defer recoverFromPanic()
+	for i := 0; i < 5; i++ {
+		fmt.Println(i)
+		if i == 2 {
+			panic(handlePanic())
+		}
+	}
+}
 
-// func main() {
-// 	doThings()
-// }
+func main() {
+	doThings()
+}
