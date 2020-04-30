@@ -45,7 +45,7 @@ func addTodo(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
-		log.Print("REquest parsing error", err)
+		log.Print("Request parsing error", err)
 	}
 
 	todo := Todo{
